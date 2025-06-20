@@ -1,18 +1,22 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,
-    "outDir": "./dist/tools",
-    "rootDir": "./tools",
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "ES2020",
+    "lib": ["ES2020"],
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "resolveJsonModule": true,
     "strict": true,
+    "sourceMap": true,
+    "noEmit": false,
+    "rootDir": "./tools",
+    "outDir": "./dist/tools",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["tools/**/*.ts"]
+  "include": [
+    "tools/**/*.ts",
+    "src/**/*.ts"
+  ]
 }
