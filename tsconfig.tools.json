@@ -7,16 +7,12 @@
     "esModuleInterop": true,
     "strict": true,
     "sourceMap": true,
-    "noEmit": false,
-    "rootDir": "./tools",
-    "outDir": "./dist/tools",
+    "outDir": "dist",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "types": ["node"]
   },
-  "include": [
-    "tools/**/*.ts",
-    "src/**/*.ts"
-  ]
+  "include": ["tools/**/*.ts", "src/modules/slorm-api/**/*.ts"]
 }

@@ -10,7 +10,7 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "node-version": "node --version",
-        "analyze": "ts-node -r tsconfig-paths/register -P tsconfig.tools.json tools/analyze.ts"
+        "analyze": "tsc -p tsconfig.tools.json && node dist/tools/analyze.js"
     },
     "private": true,
     "dependencies": {
