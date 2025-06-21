@@ -9,6 +9,7 @@ import { SlormToolsComponent } from './core/components/slorm-tools/slorm-tools.c
 import { MaterialModule } from './modules/shared/material.module';
 import { SlormApiModule } from './modules/slorm-api/slorm-api.module';
 import { BuildErrorHandler } from './modules/slorm-planner/handler/error-handler';
+import { SlormLegendaryModule } from './modules/slorm-legendary/slorm-legendary.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { BuildErrorHandler } from './modules/slorm-planner/handler/error-handler
         AppRoutingModule,
         MaterialModule,
         HttpClientModule,
+        SlormLegendaryModule
     ],
     bootstrap: [AppComponent],
     providers: [
