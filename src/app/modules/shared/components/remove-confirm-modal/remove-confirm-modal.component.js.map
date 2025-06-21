@@ -1,0 +1,1 @@
+{"version":3,"file":"remove-confirm-modal.component.js","sourceRoot":"","sources":["remove-confirm-modal.component.ts"],"names":[],"mappings":";;;;;;;;;AAAA,wCAA0C;AAOnC,IAAM,2BAA2B,GAAjC,MAAM,2BAA2B;CAAI,CAAA;AAA/B,2BAA2B;IALvC,IAAA,gBAAS,EAAC;QACT,QAAQ,EAAE,0BAA0B;QACpC,WAAW,EAAE,uCAAuC;QACpD,SAAS,EAAE,CAAC,uCAAuC,CAAC;KACrD,CAAC;GACW,2BAA2B,CAAI;AAA/B,kEAA2B"}
