@@ -1,14 +1,15 @@
-<!-- Last updated: 16:22 PM CST -->
+<!-- Last updated: 20:55 PM CST 2025-06-20 -->
 🧠 Slormstack AI Project Prompt (for JetBrains Rider AI & Others)
 
 ✅ Project context fully loaded
 ✅ Ancestral Legacy mechanics corrected with Adam's dual role
 ✅ Technical architecture mapped with Adam progression tracking
 ✅ Current priorities identified with Adam integration focus
-✅ Blocking issues flagged (framework alignment)
+✅ Framework CONFIRMED as Angular 14.2.4 (not React)
 ✅ Implementation strategies defined for Adam mechanics
 ✅ Game logic constraints updated with Adam progression
 ✅ UI/UX requirements updated for Adam tracking display
+✅ Wrapper component and FeatureFlagsService CONFIRMED implemented
 ✅ Ready for immediate development decisions
 
 🧩 Project Overview
@@ -32,11 +33,12 @@ Players upload their save or manually configure a build to:
 •	Optimize damage, survivability, or farming
 •	Compare with community meta or share their own guides
 
-🧰 Tooling & Stack
-•	Frontend: React + Vite + TailwindCSS
-•	Backend: Node (planned, optional for save uploads)
+🧰 Tooling & Stack (VERIFIED)
+•	Frontend: Angular 14.2.4 + TypeScript 4.8.4 + Angular Material 14.2.3
+•	Backend: Node 18.10.0 (planned, optional for save uploads)
 •	Logic/Core: TypeScript services from slorm-planner fork
-•	Testing: Vitest + CI workflows for validation coverage
+•	Testing: Angular testing framework (ng test) + Protractor 7.0.0
+•	Build: Angular CLI 14.2.4 + npm package manager
 •	Deployment: GitHub Pages (static), Docker (future backends)
 •	Source: https://github.com/Doctrineofwar/slormstack
 
@@ -52,13 +54,13 @@ Players upload their save or manually configure a build to:
 •	Printable or sharable build guides
 
 🧪 Testing & Quality
-•	Automated tests for validator (unit + integration)
+•	Automated tests for validator (ng test + unit tests)
 •	Developer QA Mode: highlights invalid states and displays reasons
 •	GitHub CI for validating mapping coverage and project consistency
 •	Manual build edge-case tests from verified save files
 
 🧭 Methodology & Conventions
-•	Vite + React template used for consistency
+•	Angular best practices with modular architecture
 •	Modularized services (parser, validator, builder) for maintainability
 •	Ancestral legacies, stats, skills, reapers validated against actual data
 •	SkillNodeService, ReaperService, UltimatumService integrated to enforce logic
@@ -88,20 +90,22 @@ Players upload their save or manually configure a build to:
 
 ## 🎯 Development Status & Next Actions
 
-### Current Work Queue (Updated Priority Order)
-1. **IMMEDIATE**: Resolve framework discrepancy (Angular vs React)
-2. **HIGH**: Implement AncestralLegacyService with Adam progression mechanics
-3. **HIGH**: Create Adam NPC interaction tracking system
-4. **HIGH**: Update ValidationService to handle boss-item-Adam progression
-5. **HIGH**: Create error handling infrastructure across all services
-6. **MEDIUM**: Set up performance optimization (lazy loading, caching)
-7. **MEDIUM**: Implement accessibility compliance (WCAG 2.1 AA)
-8. **LOW**: Community features and advanced UI polish
+### Current Work Queue (VERIFIED STATUS)
+1. **COMPLETED**: AncestralLegaciesWrapperComponent created ✅
+2. **COMPLETED**: FeatureFlagsService implemented ✅
+3. **IN PROGRESS**: Integration with routing system 🔄
+4. **HIGH**: Complete Adam progression mechanics in services
+5. **HIGH**: Update ValidationService to handle boss-item-Adam progression
+6. **HIGH**: Create error handling infrastructure across all services
+7. **MEDIUM**: Set up performance optimization (lazy loading, caching)
+8. **MEDIUM**: Implement accessibility compliance (WCAG 2.1 AA)
+9. **LOW**: Community features and advanced UI polish
 
-### Next 3 Actions (Ready to Execute)
-1. **Decision Required**: Framework alignment - update PROMPT.md OR migrate to React
-2. **Code Implementation**: Create `AncestralLegacyService` with Adam mechanics (boss→item→Adam→node)
-3. **Progression Tracking**: Implement boss defeat and item delivery tracking system
+### Immediate Next Actions (VERIFIED READY)
+1. **ROUTING**: Verify routing integration for AncestralLegaciesWrapperComponent
+2. **MODULE**: Confirm wrapper component is properly declared in BuildModule
+3. **TESTING**: Test feature flag toggle functionality
+4. **ADAM SERVICE**: Begin AncestralLegacyService with Adam mechanics
 
 ### Adam Integration Requirements
 - Track which bosses have been defeated
@@ -109,48 +113,6 @@ Players upload their save or manually configure a build to:
 - Validate Adam fight availability (requires 6 items delivered)
 - Handle Adam as both NPC (nodes 1-6) and final boss (node 7)
 
-## 🔧 Technical Implementation Context
+## 🔧 Technical Implementation Context (VERIFIED)
 
-### Game Logic Requirements (CORRECTED FOR ADAM)
-```typescript
-// Critical Validation Rules (ADAM-CORRECTED)
-const VALIDATION_RULES = {
-  ANCESTRAL_LEGACIES: '0_TO_7_PROGRESSIVE',     // 0-7 based on campaign progress
-  ADAM_ITEM_DELIVERY: 'boss_items_to_adam',     // Boss items must be brought to Adam
-  ADAM_FINAL_BOSS: 'defeat_adam_for_7th_node',  // Adam must be defeated for 7th node
-  FIRST_NODE_INNER_RING: true,                  // First node must be inner ring
-  NODES_2_TO_6_CONNECTED: true,                 // Must connect to previous
-  NODE_7_FREE_PLACEMENT: true,                  // 7th can go anywhere free
-  PRIMARY_SKILL_MATCH_CLASS: true,              // Must match character class
-  SECONDARY_SKILLS_MATCH_SPEC: true,            // Must match class + specialization
-  NO_SAVE_EDITING: true,                        // Read-only save file operations
-  VERIFIED_DATA_ONLY: true,                     // No assumptions about game mechanics
-  REAL_TIME_VALIDATION: true,                   // Show red badge for invalid builds
-};
-```
-// Updated component for Adam-centric progression
-LegaciesComponent: {
-  displayProgression: '0/7 nodes, X/6 items delivered to Adam';
-  showAdamStatus: 'NPC phase vs Boss phase indicator';
-  bossItemTracking: 'which bosses defeated, which items delivered';
-  adamFightAvailability: 'highlight when Adam can be fought';
-  seventhNodeSpecial: 'indicate 7th node is Adam\'s defeat reward';
-  validationFeedback: 'real-time placement validation';
-  progressionIndicator: 'Adam interaction progress affects available nodes';
-}
-
-## **Adam's Dual Role**:
-- **Nodes 1-6**: Adam is an NPC who receives boss items and gives legacy nodes
-- **Node 7**: Adam becomes the final boss who must be defeated after delivering 6 items
-
-## **Progression System**:
-- Boss defeated → Item obtained → Item brought to Adam → Node received (repeat 6 times)
-- After 6 items delivered → Fight Adam → Receive 7th node
-
-## **Technical Implementation**:
-- Added Adam progression tracking
-- Boss item delivery validation
-- Adam fight availability logic
-- UI elements for Adam's dual role
-
-Both documents now accurately reflect the complete Adam-centric Ancestral Legacy system.
+### Confirmed File Structure

@@ -1,0 +1,53 @@
+<div class="ancestral-legacy-tree">
+  <div class="progression-info">
+    <h3>{{ getProgressionText() }}</h3>
+    <p>{{ getAdamStatusText() }}</p>
+  </div>
+
+  <div class="tree-container">
+    <svg class="tree-svg" viewBox="-250 -250 500 500">
+      <!-- Nodes -->
+      <g *ngFor="let node of allNodes" class="node-group">
+        <circle
+          [attr.cx]="node.position.x"
+          [attr.cy]="node.position.y"
+          r="25"
+          [attr.fill]="isNodeActive(node.id) ? '#4CAF50' : '#9E9E9E'"
+          [attr.stroke]="getNodeErrors(node.id).length > 0 ? '#F44336' : '#757575'"
+          stroke-width="2"
+          class="node-circle"
+          (click)="onNodeClick(node.id)"
+          [style.cursor]="'pointer'"
+        />
+        <text
+          [attr.x]="node.position.x"
+          [attr.y]="node.position.y + 5"
+          text-anchor="middle"
+          [attr.fill]="isNodeActive(node.id) ? '#FFFFFF' : '#000000'"
+          class="node-text"
+          (click)="onNodeClick(node.id)"
+          [style.cursor]="'pointer'"
+        >
+          {{ node.id }}
+        </text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="selected-node-info" *ngIf="selectedNode">
+    <h4>{{ selectedNode.name }}</h4>
+    <p>{{ selectedNode.description }}</p>
+    <div class="effects">
+      <div *ngFor="let effect of selectedNode.effects" class="effect">
+        {{ effect.description }}
+      </div>
+    </div>
+  </div>
+
+  <div class="validation-errors" *ngIf="hasValidationErrors()">
+    <h4>Validation Errors:</h4>
+    <div *ngFor="let error of validationState.errors" class="error">
+      {{ error.message }}
+    </div>
+  </div>
+</div>
